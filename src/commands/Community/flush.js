@@ -2,7 +2,7 @@ const { PermissionsBitField, SlashCommandBuilder } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("purge")
+    .setName("flush")
     .setDescription("Purge server of role")
     .addRoleOption((option) =>
       option
@@ -17,7 +17,7 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction) {
-    await interaction.deferReply();
+    interaction.deferReply();
     const reason4Kick = interaction.options.getString("reason");
     const role2Kick = interaction.options.getRole("role");
     if (
